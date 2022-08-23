@@ -20,13 +20,13 @@ function Form() {
         todoDesc: todoDesc,
       })
     );
-    number++;          //기존number에서 +1되서 새로운 카드가 state에 저장된후 카드말고 기본number에도 +1
+    number++;          //기존number에서 +1되서 새로운 카드가 state에 저장된후(위의 creat 함수안에서) 카드말고 기본number에도 +1
     setTodoTitle("");  // 입력후 input값이 빈칸이 되게 하기 위함
     setTodoDesc("");
   };
 
   //html--------------------------------------------------------------------------------------------------
-  
+
   return (
     <form onSubmit={onSubmit} className="add-form">
       <div className="input-group">

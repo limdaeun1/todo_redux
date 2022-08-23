@@ -27,15 +27,15 @@ const initinalState = [
 
 
 
-// Action Creator-----------------------------------------------------------
-export function createTodo(todolist) {  //id, title 등등 card정보가 들어옴
+// Action Creator------------------------------------------------------------------------
+export function createTodo(todolist) {  //id, title 등등 card정보가 들어옴. 파라미터 이름 상관x 
   return { type: CREATE, todolist };
 }
-export function updateTodo(todo_id) {   //todo.id로 들어옴
+export function updateTodo(todo_id) {   // todo.jsx에서 todo.id가 들어옴
   return { type: UPDATE, todo_id };     
 }
 
-export function deleteTodo(todo_id) {
+export function deleteTodo(todo_id) {  
   return { type: DELETE, todo_id };    
 
 }
@@ -58,8 +58,8 @@ export default function reducer(state = initinalState, action = {}) {
 
     case "todo/UPDATE": { //card는 각 todo
       const new_todolist = state.map((card => {
-        if (card.id === parseInt(action.todo_id)) {
-          return { ...card, Done: !card.Done };
+        if (card.id === parseInt(action.todo_id)) {    // 뭘꺼낼지 action뒤의 파라미터 이름이 헷갈릴땐 콘솔을 찍어보자
+          return { ...card, Done: !card.Done };        //parseInt :문자열 숫자로 바꿔주기
         } else {
           return card;
         }
