@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import styled from "styled-components";
 
 const Detail = () => {
     const navigate = useNavigate();  //뒤로가기 페이지 이동
@@ -17,19 +18,55 @@ const Detail = () => {
 //html--------------------------------------------------------------------------------------------------
 
     return (
-        
-        <div>
-            <button onClick={() => {navigate(-1);}}>뒤로가기</button>
-            <div>
+       <Bigbox> 
+        <DetailBox >
+            <But onClick={() => {navigate(-1);}}>뒤로가기</But>
+            <SmallBox>
                 <p>id : {tododetail[0].id}</p>    
                 <h2>{tododetail[0].title}</h2>
                 <p>{tododetail[0].todoDesc}</p>
                
-            </div>
-        </div>
+            </SmallBox>
+        </DetailBox >
+        </Bigbox>
 
 
     )
 }
+
+const DetailBox = styled.div`
+    width: 600px;
+    height: 400px;
+    border: 1px solid rgb(238, 238, 238);
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+`
+const Bigbox = styled.div`
+    border: 2px solid rgb(238, 238, 238);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;`
+
+const SmallBox = styled.div`
+ 
+ height: 100vh;
+ margin: 0 auto;`
+
+const But = styled.button`
+border: none;
+  height: 40px;
+  border-radius: 10px;
+  background-color: teal;
+  width: 140px;
+  color: #fff;
+  font-weight: 700;
+`
+
 
 export default Detail;

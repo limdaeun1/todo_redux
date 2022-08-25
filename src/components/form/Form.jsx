@@ -10,8 +10,10 @@ function Form() {
   const dispatch = useDispatch();
   
   const onSubmit = (event) => {
-    event.preventDefault();   // preventDefault: 추가하기 버튼을 눌렀어도 새로 실행하지 않게 하고싶어서 사용(새로고침x)
-    
+    event.preventDefault();   // preventDefault:  새로 실행하지 않게 하고싶어서 사용(새로고침x)   -추가하기버튼 눌렀을때 쓴카드내용들이 저장 남아있게 페이지새로고침을막는다? 
+   
+    if (todoTitle ==="" || todoDesc ==="") return //빈칸 입력시 추가하기 버튼 눌러도 추가하지말고 그냥 return 시키기
+  
     dispatch(
       createTodo({        //state(todolist)에 새로운 card 정보 넣어서 저장 
         id: number + 1,
@@ -26,7 +28,7 @@ function Form() {
   };
 
   //html--------------------------------------------------------------------------------------------------
-
+ 
   return (
     <form onSubmit={onSubmit} className="add-form">
       <div className="input-group">
